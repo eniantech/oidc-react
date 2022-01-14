@@ -6,7 +6,9 @@ import {
   AuthContextProps,
 } from './AuthContextInterface';
 
-export const AuthContext = React.createContext<AuthContextProps | undefined>(undefined);
+export const AuthContext = React.createContext<AuthContextProps | undefined>(
+  undefined,
+);
 
 /**
  * @private
@@ -81,7 +83,7 @@ export const AuthProvider: FC<AuthProviderProps> = ({
 }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [userData, setUserData] = useState<User | null>(null);
-  const [userManager] = useState<UserManager>(() => initUserManager(props)); 
+  const [userManager] = useState<UserManager>(() => initUserManager(props));
 
   const signOutHooks = async (): Promise<void> => {
     setUserData(null);
@@ -107,11 +109,15 @@ export const AuthProvider: FC<AuthProviderProps> = ({
        * Check if the user is returning back from OIDC.
        */
       if (hasCodeInUrl(location)) {
-        const user = await userManager.signinCallback();
-        setUserData(user);
-        setIsLoading(false);
-        onSignIn && onSignIn(user);
-        return;
+        try {
+          const user = await userManager.signinCallback();
+          setUserData(user);
+          setIsLoading(false);
+          onSignIn && onSignIn(user);
+          return;
+        } catch (err) {
+          console.warn(`error during 'userManager.signinCallback'`, err);
+        }
       }
 
       const user = await userManager!.getUser();
