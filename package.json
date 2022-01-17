@@ -1,7 +1,6 @@
 {
-  "name": "oidc-react",
-  "version": "1.5.1",
-  "private": true,
+  "name": "@eniantech/oidc-react",
+  "version": "1.5.1",  
   "description": "Fork of oidc-react",
   "repository": {
     "type": "git",
