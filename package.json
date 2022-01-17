@@ -2,10 +2,7 @@
   "name": "@eniantech/oidc-react",
   "version": "1.5.2",  
   "description": "Fork of oidc-react",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/eniantech/oidc-react"
-  },  
+  "repository": "git://github.com/eniantech/oidc-react.git",
   "license": "MIT",
   "author": "",
   "main": "build/src/index.js",
