@@ -26,8 +26,9 @@ jobs:
       - run: yarn install
 
       - run: yarn run build
+      - run: echo  ${{ secrets.GH_PACKAGE_TOKEN }}
       - run: npm config set '//npm.pkg.github.com/:_authToken' ${{ secrets.GH_PACKAGE_TOKEN }}
       
-      - run: yarn publish
+      - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.GH_PACKAGE_TOKEN}}      
