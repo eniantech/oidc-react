@@ -115,7 +115,7 @@ export const AuthProvider: FC<AuthProviderProps> = ({
           setIsLoading(false);
           onSignIn && onSignIn(user);
           return;
-        } catch (err: unknown) {
+        } catch (err) {
           console.warn(`error during 'userManager.signinCallback'`, err);
           if (
             err instanceof Error &&
