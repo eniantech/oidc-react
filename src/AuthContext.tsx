@@ -115,8 +115,13 @@ export const AuthProvider: FC<AuthProviderProps> = ({
           setIsLoading(false);
           onSignIn && onSignIn(user);
           return;
-        } catch (err) {
+        } catch (err: unknown) {
           console.warn(`error during 'userManager.signinCallback'`, err);
+          if (
+            err instanceof Error &&
+            err.message.includes('iat is in the future')
+          )
+            window.location.href = 'clock-error';
         }
       }
 
