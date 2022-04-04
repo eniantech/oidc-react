@@ -123,8 +123,10 @@ export const AuthProvider: FC<AuthProviderProps> = ({
             err instanceof Error &&
             (err.message.includes('iat is in the future') ||
               err.message.includes('exp is in the past'))
-          )
+          ) {
             history.push('/clock-error');
+            return;
+          }
         }
       }
 
