@@ -1,4 +1,5 @@
 import React, { FC, useState, useEffect, useRef } from 'react';
+import { useHistory } from 'react-router-dom';
 import { UserManager, User } from 'oidc-client';
 import {
   Location,
@@ -84,6 +85,7 @@ export const AuthProvider: FC<AuthProviderProps> = ({
   const [isLoading, setIsLoading] = useState(true);
   const [userData, setUserData] = useState<User | null>(null);
   const [userManager] = useState<UserManager>(() => initUserManager(props));
+  const history = useHistory();
 
   const signOutHooks = async (): Promise<void> => {
     setUserData(null);
@@ -119,9 +121,10 @@ export const AuthProvider: FC<AuthProviderProps> = ({
           console.warn(`error during 'userManager.signinCallback'`, err);
           if (
             err instanceof Error &&
-            err.message.includes('iat is in the future')
+            (err.message.includes('iat is in the future') ||
+              err.message.includes('exp is in the past'))
           )
-            window.location.href = 'clock-error';
+            history.push('/clock-error');
         }
       }
 
