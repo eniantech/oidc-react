@@ -41,7 +41,8 @@
     ]
   },
   "dependencies": {
-    "oidc-client": "^1.11.5"
+    "oidc-client": "^1.11.5",
+    "react-router-dom": "^6.3.0"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.4.0",
