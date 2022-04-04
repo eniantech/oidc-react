@@ -1,3 +1,30 @@
+# Pushing updates to this fork
+
+Ryan - 04/04/2022 - very rough docs.
+
+Clone this repo
+
+```
+git clone git@github.com:eniantech/oidc-react.git
+```
+
+#### Once you've made changes to the code:
+
+I tried a couple of things so some of the below may be insufficient, but it should help..
+First ensure your github token is set, it already will be if you have ever successfully run `npm install` on puffin.
+If not, look at puffin docs.
+
+If you've never run `npm install` in your local version of this repo, you should do so.
+
+```sh
+npm run build # This line is most likely unneeded
+npm start
+npm version x.x.x # the new version next version no. of the package.
+npm publish
+```
+
+You should also commit and push your changes to git!
+
 # OIDC React
 
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
