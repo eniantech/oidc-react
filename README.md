@@ -19,7 +19,7 @@ If you've never run `npm install` in your local version of this repo, you should
 ```sh
 npm run build # This line is most likely unneeded
 npm start
-npm version x.x.x # the new version next version no. of the package.
+npm version x.x.x # the next version no. of this package.
 npm publish
 ```
 
