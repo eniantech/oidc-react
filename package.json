@@ -1,6 +1,6 @@
 {
   "name": "@eniantech/oidc-react",
-  "version": "1.5.5",
+  "version": "1.5.6",
   "description": "Fork of oidc-react",
   "repository": "git://github.com/eniantech/oidc-react.git",
   "license": "MIT",
